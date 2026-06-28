@@ -1,5 +1,5 @@
 """
-ABC GTM — Main Application Entry Point
+Fetch AI — Main Application Entry Point
 """
 from contextlib import asynccontextmanager
 
@@ -8,7 +8,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 
 from core.database import create_tables
-from routers import campaign, webhooks, execution
+from routers import campaign, webhooks, execution, crm, decks, events, competitor
 
 
 @asynccontextmanager
@@ -18,8 +18,8 @@ async def lifespan(app: FastAPI):
 
 
 app = FastAPI(
-    title="ABC GTM",
-    description="AI-Enhanced Sales Automation — Orange Slice + GPT-4o Pipeline",
+    title="Fetch AI",
+    description="AI-Powered Sales Automation — Orange Slice + GPT-4o Pipeline",
     version="1.0.0",
     lifespan=lifespan,
 )
@@ -36,8 +36,12 @@ app.add_middleware(
 app.include_router(campaign.router)
 app.include_router(webhooks.router)
 app.include_router(execution.router)
+app.include_router(crm.router)
+app.include_router(decks.router)
+app.include_router(events.router)
+app.include_router(competitor.router)
 
-# ── Static files (demo UI + generated microsites) ─────────────────────────────
+# ── Static files ──────────────────────────────────────────────────────────────
 app.mount("/static", StaticFiles(directory="static"), name="static")
 
 
@@ -49,4 +53,4 @@ async def root():
 
 @app.get("/health")
 async def health():
-    return {"status": "ok", "service": "ABC GTM"}
+    return {"status": "ok", "service": "Fetch AI"}

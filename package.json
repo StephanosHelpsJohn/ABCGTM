@@ -1,0 +1,8 @@
+{
+  "name": "abcgtm",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "orangeslice": "^2.6.0"
+  }
+}

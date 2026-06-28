@@ -1,0 +1,21 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+*.egg-info/
+
+# Node
+node_modules/
+
+# Local secrets & DB
+.env
+*.db
+
+# Generated files
+static/microsites/
+static/decks/
+orangeslice-docs/
+
+# Claude internal
+AGENTS.md
+CLAUDE.md
