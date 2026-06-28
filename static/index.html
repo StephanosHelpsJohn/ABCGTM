@@ -3,16 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ABC GTM — AI Sales Automation</title>
+  <title>Fetch AI — AI Sales Automation</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <style>
     body { font-family: 'Inter', sans-serif; background-color: #0A0A0A; }
-    .glow-red { box-shadow: 0 0 30px rgba(255,0,52,0.35); }
+    .glow-gold  { box-shadow: 0 0 30px rgba(245,166,35,0.40); }
     .glow-green { box-shadow: 0 0 30px rgba(0,200,100,0.3); }
-    .border-red-glow { border-color: rgba(255,0,52,0.4); }
     .dot-grid {
-      background-image: radial-gradient(circle at 1px 1px, rgba(255,0,52,0.07) 1px, transparent 0);
+      background-image: radial-gradient(circle at 1px 1px, rgba(245,166,35,0.06) 1px, transparent 0);
       background-size: 36px 36px;
     }
     @keyframes pulse-ring {
@@ -24,11 +23,9 @@
       position: absolute;
       inset: 0;
       border-radius: 9999px;
-      background: #FF0034;
+      background: #F5A623;
       animation: pulse-ring 1.4s cubic-bezier(0,0,0.2,1) infinite;
     }
-    @keyframes spin { to { transform: rotate(360deg); } }
-    .spin { animation: spin 1s linear infinite; }
     @keyframes fadeIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
     .fade-in { animation: fadeIn 0.4s ease forwards; }
     @keyframes progress {
@@ -39,6 +36,7 @@
       100% { width: 100%; }
     }
     .progress-bar { animation: progress 6s ease-in-out forwards; }
+    canvas { image-rendering: pixelated; image-rendering: crisp-edges; }
   </style>
 </head>
 <body class="dot-grid min-h-screen text-white flex flex-col">
@@ -46,10 +44,59 @@
   <!-- ── NAV ─────────────────────────────────────────────────────────────── -->
   <nav class="border-b border-white/5 px-8 py-4 flex items-center justify-between">
     <div class="flex items-center gap-3">
-      <div class="w-8 h-8 bg-[#FF0034] rounded-lg flex items-center justify-center">
-        <span class="text-white font-black text-sm">A</span>
-      </div>
-      <span class="font-bold text-white tracking-tight">ABC <span class="text-[#FF0034]">GTM</span></span>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"
+           shape-rendering="crispEdges" style="width:36px;height:36px;image-rendering:pixelated">
+        <rect x="2"  y="0"  width="2" height="1" fill="#9B5200"/>
+        <rect x="12" y="0"  width="2" height="1" fill="#9B5200"/>
+        <rect x="1"  y="1"  width="2" height="1" fill="#9B5200"/>
+        <rect x="13" y="1"  width="2" height="1" fill="#9B5200"/>
+        <rect x="0"  y="2"  width="2" height="1" fill="#9B5200"/>
+        <rect x="14" y="2"  width="2" height="1" fill="#9B5200"/>
+        <rect x="0"  y="3"  width="1" height="5" fill="#9B5200"/>
+        <rect x="15" y="3"  width="1" height="5" fill="#9B5200"/>
+        <rect x="1"  y="8"  width="1" height="1" fill="#9B5200"/>
+        <rect x="14" y="8"  width="1" height="1" fill="#9B5200"/>
+        <rect x="1"  y="9"  width="1" height="3" fill="#9B5200"/>
+        <rect x="14" y="9"  width="1" height="3" fill="#9B5200"/>
+        <rect x="2"  y="12" width="1" height="1" fill="#9B5200"/>
+        <rect x="13" y="12" width="1" height="1" fill="#9B5200"/>
+        <rect x="2"  y="13" width="1" height="1" fill="#9B5200"/>
+        <rect x="13" y="13" width="1" height="1" fill="#9B5200"/>
+        <rect x="3"  y="14" width="1" height="1" fill="#9B5200"/>
+        <rect x="12" y="14" width="1" height="1" fill="#9B5200"/>
+        <rect x="4"  y="15" width="8" height="1" fill="#9B5200"/>
+        <rect x="3"  y="1"  width="2" height="1" fill="#E8A020"/>
+        <rect x="11" y="1"  width="2" height="1" fill="#E8A020"/>
+        <rect x="2"  y="2"  width="12" height="1" fill="#E8A020"/>
+        <rect x="1"  y="3"  width="14" height="2" fill="#E8A020"/>
+        <rect x="1"  y="5"  width="2"  height="1" fill="#E8A020"/>
+        <rect x="5"  y="5"  width="6"  height="1" fill="#E8A020"/>
+        <rect x="13" y="5"  width="2"  height="1" fill="#E8A020"/>
+        <rect x="1"  y="6"  width="2"  height="1" fill="#E8A020"/>
+        <rect x="5"  y="6"  width="6"  height="1" fill="#E8A020"/>
+        <rect x="13" y="6"  width="2"  height="1" fill="#E8A020"/>
+        <rect x="1"  y="7"  width="14" height="1" fill="#E8A020"/>
+        <rect x="2"  y="8"  width="12" height="1" fill="#E8A020"/>
+        <rect x="2"  y="9"  width="1"  height="3" fill="#E8A020"/>
+        <rect x="13" y="9"  width="1"  height="3" fill="#E8A020"/>
+        <rect x="3"  y="5"  width="2" height="1" fill="#180800"/>
+        <rect x="3"  y="6"  width="1" height="1" fill="#180800"/>
+        <rect x="11" y="5"  width="2" height="1" fill="#180800"/>
+        <rect x="11" y="6"  width="1" height="1" fill="#180800"/>
+        <rect x="4"  y="6"  width="1" height="1" fill="#FFFFFF"/>
+        <rect x="12" y="6"  width="1" height="1" fill="#FFFFFF"/>
+        <rect x="3"  y="9"  width="10" height="2" fill="#F5D890"/>
+        <rect x="3"  y="11" width="2"  height="1" fill="#F5D890"/>
+        <rect x="11" y="11" width="2"  height="1" fill="#F5D890"/>
+        <rect x="3"  y="12" width="2"  height="1" fill="#F5D890"/>
+        <rect x="11" y="12" width="2"  height="1" fill="#F5D890"/>
+        <rect x="3"  y="13" width="3"  height="1" fill="#F5D890"/>
+        <rect x="10" y="13" width="3"  height="1" fill="#F5D890"/>
+        <rect x="4"  y="14" width="8"  height="1" fill="#F5D890"/>
+        <rect x="5"  y="11" width="6"  height="2" fill="#180800"/>
+        <rect x="6"  y="13" width="4"  height="1" fill="#E0506A"/>
+      </svg>
+      <span class="font-bold text-white tracking-tight text-lg">Fetch <span class="text-[#F5A623]">AI</span></span>
     </div>
     <span class="text-xs text-white/30 uppercase tracking-widest">Powered by Orange Slice AI + GPT-4o</span>
   </nav>
@@ -58,65 +105,105 @@
   <main class="flex-1 flex items-center justify-center px-4 py-16">
     <div class="w-full max-w-xl">
 
-      <!-- ═══════════════════════════════════════════════════
+      <!-- ═══════════════════════════════════════════════
            SCREEN 1 — SETUP
-      ═══════════════════════════════════════════════════ -->
+      ═══════════════════════════════════════════════ -->
       <div id="screen-1" class="fade-in">
         <div class="text-center mb-10">
-          <div class="inline-flex items-center gap-2 bg-[#FF0034]/10 border border-[#FF0034]/20 rounded-full px-4 py-1.5 text-xs text-[#FF0034] font-semibold uppercase tracking-widest mb-6">
+          <div class="flex justify-center mb-5">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"
+                 shape-rendering="crispEdges" style="width:96px;height:96px;image-rendering:pixelated">
+              <rect x="2"  y="0"  width="2" height="1" fill="#9B5200"/>
+              <rect x="12" y="0"  width="2" height="1" fill="#9B5200"/>
+              <rect x="1"  y="1"  width="2" height="1" fill="#9B5200"/>
+              <rect x="13" y="1"  width="2" height="1" fill="#9B5200"/>
+              <rect x="0"  y="2"  width="2" height="1" fill="#9B5200"/>
+              <rect x="14" y="2"  width="2" height="1" fill="#9B5200"/>
+              <rect x="0"  y="3"  width="1" height="5" fill="#9B5200"/>
+              <rect x="15" y="3"  width="1" height="5" fill="#9B5200"/>
+              <rect x="1"  y="8"  width="1" height="1" fill="#9B5200"/>
+              <rect x="14" y="8"  width="1" height="1" fill="#9B5200"/>
+              <rect x="1"  y="9"  width="1" height="3" fill="#9B5200"/>
+              <rect x="14" y="9"  width="1" height="3" fill="#9B5200"/>
+              <rect x="2"  y="12" width="1" height="1" fill="#9B5200"/>
+              <rect x="13" y="12" width="1" height="1" fill="#9B5200"/>
+              <rect x="2"  y="13" width="1" height="1" fill="#9B5200"/>
+              <rect x="13" y="13" width="1" height="1" fill="#9B5200"/>
+              <rect x="3"  y="14" width="1" height="1" fill="#9B5200"/>
+              <rect x="12" y="14" width="1" height="1" fill="#9B5200"/>
+              <rect x="4"  y="15" width="8" height="1" fill="#9B5200"/>
+              <rect x="3"  y="1"  width="2" height="1" fill="#E8A020"/>
+              <rect x="11" y="1"  width="2" height="1" fill="#E8A020"/>
+              <rect x="2"  y="2"  width="12" height="1" fill="#E8A020"/>
+              <rect x="1"  y="3"  width="14" height="2" fill="#E8A020"/>
+              <rect x="1"  y="5"  width="2"  height="1" fill="#E8A020"/>
+              <rect x="5"  y="5"  width="6"  height="1" fill="#E8A020"/>
+              <rect x="13" y="5"  width="2"  height="1" fill="#E8A020"/>
+              <rect x="1"  y="6"  width="2"  height="1" fill="#E8A020"/>
+              <rect x="5"  y="6"  width="6"  height="1" fill="#E8A020"/>
+              <rect x="13" y="6"  width="2"  height="1" fill="#E8A020"/>
+              <rect x="1"  y="7"  width="14" height="1" fill="#E8A020"/>
+              <rect x="2"  y="8"  width="12" height="1" fill="#E8A020"/>
+              <rect x="2"  y="9"  width="1"  height="3" fill="#E8A020"/>
+              <rect x="13" y="9"  width="1"  height="3" fill="#E8A020"/>
+              <rect x="3"  y="5"  width="2" height="1" fill="#180800"/>
+              <rect x="3"  y="6"  width="1" height="1" fill="#180800"/>
+              <rect x="11" y="5"  width="2" height="1" fill="#180800"/>
+              <rect x="11" y="6"  width="1" height="1" fill="#180800"/>
+              <rect x="4"  y="6"  width="1" height="1" fill="#FFFFFF"/>
+              <rect x="12" y="6"  width="1" height="1" fill="#FFFFFF"/>
+              <rect x="3"  y="9"  width="10" height="2" fill="#F5D890"/>
+              <rect x="3"  y="11" width="2"  height="1" fill="#F5D890"/>
+              <rect x="11" y="11" width="2"  height="1" fill="#F5D890"/>
+              <rect x="3"  y="12" width="2"  height="1" fill="#F5D890"/>
+              <rect x="11" y="12" width="2"  height="1" fill="#F5D890"/>
+              <rect x="3"  y="13" width="3"  height="1" fill="#F5D890"/>
+              <rect x="10" y="13" width="3"  height="1" fill="#F5D890"/>
+              <rect x="4"  y="14" width="8"  height="1" fill="#F5D890"/>
+              <rect x="5"  y="11" width="6"  height="2" fill="#180800"/>
+              <rect x="6"  y="13" width="4"  height="1" fill="#E0506A"/>
+            </svg>
+          </div>
+
+          <div class="inline-flex items-center gap-2 bg-[#F5A623]/10 border border-[#F5A623]/20 rounded-full px-4 py-1.5 text-xs text-[#F5A623] font-semibold uppercase tracking-widest mb-5">
             <span class="relative flex h-2 w-2">
-              <span class="pulse-dot relative inline-flex rounded-full h-2 w-2 bg-[#FF0034]"></span>
+              <span class="pulse-dot relative inline-flex rounded-full h-2 w-2 bg-[#F5A623]"></span>
             </span>
             Live Demo Mode
           </div>
           <h1 class="text-4xl font-black tracking-tight leading-none mb-3">
-            Deploy<br><span class="text-[#FF0034]">ABC GTM</span>
+            Go Fetch,<br><span class="text-[#F5A623]">Fetch AI</span>
           </h1>
           <p class="text-white/40 text-sm max-w-sm mx-auto leading-relaxed">
-            Enter a target domain and persona. The AI pipeline will enrich, draft a cold email, and generate a personalized microsite in seconds.
+            Drop in a domain and persona. Fetch AI will enrich the prospect, draft a cold email, and generate a personalized microsite — in seconds.
           </p>
         </div>
 
         <div class="bg-white/[0.03] border border-white/10 rounded-2xl p-8 space-y-5">
           <div>
             <label class="block text-xs font-semibold text-white/50 uppercase tracking-wider mb-2">Company Domain</label>
-            <input
-              id="domain-input"
-              type="text"
-              placeholder="e.g. salesforce.com"
-              class="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-white/20 focus:outline-none focus:border-[#FF0034]/50 focus:ring-1 focus:ring-[#FF0034]/30 transition-all"
-            />
+            <input id="domain-input" type="text" placeholder="e.g. salesforce.com"
+              class="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-white/20 focus:outline-none focus:border-[#F5A623]/50 focus:ring-1 focus:ring-[#F5A623]/30 transition-all"/>
           </div>
           <div>
             <label class="block text-xs font-semibold text-white/50 uppercase tracking-wider mb-2">Target Persona</label>
-            <input
-              id="persona-input"
-              type="text"
-              placeholder="e.g. VP Sales"
-              value="VP Sales"
-              class="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-white/20 focus:outline-none focus:border-[#FF0034]/50 focus:ring-1 focus:ring-[#FF0034]/30 transition-all"
-            />
+            <input id="persona-input" type="text" placeholder="e.g. VP Sales" value="VP Sales"
+              class="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-white/20 focus:outline-none focus:border-[#F5A623]/50 focus:ring-1 focus:ring-[#F5A623]/30 transition-all"/>
           </div>
-
-          <button
-            id="deploy-btn"
-            onclick="runPipeline()"
-            class="w-full bg-[#FF0034] hover:bg-[#CC0028] text-white font-black text-lg py-4 rounded-xl transition-all duration-200 glow-red uppercase tracking-wider mt-2"
-          >
-            ⚡ Deploy ABC GTM
+          <button id="deploy-btn" onclick="runPipeline()"
+            class="w-full bg-[#F5A623] hover:bg-[#D4860A] text-black font-black text-lg py-4 rounded-xl transition-all duration-200 glow-gold uppercase tracking-wider mt-2">
+            🐕 Fetch This Lead
           </button>
-
           <p id="error-msg" class="text-red-400 text-sm text-center hidden"></p>
         </div>
 
-        <!-- Stats strip -->
         <div class="grid grid-cols-3 gap-4 mt-6 text-center">
           <div class="bg-white/[0.02] border border-white/5 rounded-xl p-4">
             <div class="text-2xl font-black text-white">~8s</div>
             <div class="text-xs text-white/30 mt-1">Full pipeline</div>
           </div>
           <div class="bg-white/[0.02] border border-white/5 rounded-xl p-4">
-            <div class="text-2xl font-black text-[#FF0034]">3</div>
+            <div class="text-2xl font-black text-[#F5A623]">3</div>
             <div class="text-xs text-white/30 mt-1">AI steps</div>
           </div>
           <div class="bg-white/[0.02] border border-white/5 rounded-xl p-4">
@@ -126,21 +213,27 @@
         </div>
       </div>
 
-      <!-- ═══════════════════════════════════════════════════
-           SCREEN 2 — PROCESSING
-      ═══════════════════════════════════════════════════ -->
+      <!-- ═══════════════════════════════════════════════
+           SCREEN 2 — PROCESSING (Fetch plays fetch)
+      ═══════════════════════════════════════════════ -->
       <div id="screen-2" class="hidden fade-in text-center">
-        <div class="mb-8">
-          <div class="inline-block w-16 h-16 border-4 border-[#FF0034]/20 border-t-[#FF0034] rounded-full spin mb-6"></div>
-          <h2 class="text-3xl font-black tracking-tight mb-2">Pipeline Running</h2>
-          <p class="text-white/40 text-sm">Sit tight. The AI is working its magic.</p>
+        <div class="mb-6">
+          <h2 class="text-3xl font-black tracking-tight mb-1">Fetch is fetching…</h2>
+          <p class="text-white/40 text-sm">Good boy. Running the full pipeline.</p>
+        </div>
+
+        <!-- Pixel art playing-fetch canvas -->
+        <div class="flex justify-center mb-6">
+          <canvas id="fetch-anim"
+            class="rounded-xl border border-white/5"
+            style="width:320px;height:128px;background:#0D0D0D">
+          </canvas>
         </div>
 
         <div class="bg-white/[0.03] border border-white/10 rounded-2xl p-8 space-y-6 text-left">
-          <!-- Steps -->
           <div class="space-y-4" id="step-list">
             <div class="step-item flex items-start gap-4" id="step-enrich">
-              <div class="flex-shrink-0 w-8 h-8 rounded-full bg-[#FF0034]/10 border border-[#FF0034]/30 flex items-center justify-center mt-0.5">
+              <div class="flex-shrink-0 w-8 h-8 rounded-full bg-[#F5A623]/10 border border-[#F5A623]/30 flex items-center justify-center mt-0.5">
                 <span class="step-icon text-sm">⏳</span>
               </div>
               <div>
@@ -176,82 +269,62 @@
               </div>
             </div>
           </div>
-
-          <!-- Progress bar -->
           <div class="h-1.5 bg-white/5 rounded-full overflow-hidden">
-            <div id="prog-bar" class="h-full bg-[#FF0034] rounded-full progress-bar w-0"></div>
+            <div id="prog-bar" class="h-full bg-[#F5A623] rounded-full progress-bar w-0"></div>
           </div>
         </div>
       </div>
 
-      <!-- ═══════════════════════════════════════════════════
+      <!-- ═══════════════════════════════════════════════
            SCREEN 3 — REVIEW & FIRE
-      ═══════════════════════════════════════════════════ -->
+      ═══════════════════════════════════════════════ -->
       <div id="screen-3" class="hidden fade-in">
         <div class="text-center mb-8">
           <div class="inline-flex items-center gap-2 bg-green-500/10 border border-green-500/20 rounded-full px-4 py-1.5 text-xs text-green-400 font-semibold uppercase tracking-widest mb-5">
-            ✓ Pipeline Complete
+            ✓ Fetch Complete
           </div>
           <h2 class="text-3xl font-black tracking-tight mb-2">Review & Fire</h2>
           <p class="text-white/40 text-sm">Edit the email if needed, then approve to send.</p>
         </div>
 
         <div class="space-y-5">
-          <!-- Microsite link -->
           <div class="bg-white/[0.03] border border-white/10 rounded-2xl p-6">
             <div class="flex items-center justify-between mb-3">
               <span class="text-xs font-semibold text-white/50 uppercase tracking-wider">Generated Microsite</span>
               <span class="text-xs text-green-400 font-semibold bg-green-400/10 px-2 py-0.5 rounded-full">Live</span>
             </div>
-            <a
-              id="microsite-link"
-              href="#"
-              target="_blank"
-              class="flex items-center gap-2 text-[#FF0034] hover:text-white transition-colors font-medium text-sm break-all group"
-            >
+            <a id="microsite-link" href="#" target="_blank"
+               class="flex items-center gap-2 text-[#F5A623] hover:text-white transition-colors font-medium text-sm break-all group">
               <span id="microsite-url-text">—</span>
-              <svg class="w-3.5 h-3.5 flex-shrink-0 group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+              <svg class="w-3.5 h-3.5 flex-shrink-0 group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+              </svg>
             </a>
             <p class="text-xs text-white/25 mt-2">Telemetry is armed — you'll see a 🚨 in the terminal when the prospect opens it.</p>
           </div>
 
-          <!-- Email draft -->
           <div class="bg-white/[0.03] border border-white/10 rounded-2xl p-6">
             <div class="flex items-center justify-between mb-3">
               <span class="text-xs font-semibold text-white/50 uppercase tracking-wider">Email Draft</span>
               <span class="text-xs text-white/30">Editable</span>
             </div>
-            <textarea
-              id="email-draft-area"
-              rows="10"
-              class="w-full bg-black/30 border border-white/5 rounded-xl px-4 py-3 text-sm text-white/80 placeholder-white/20 focus:outline-none focus:border-[#FF0034]/40 resize-none leading-relaxed"
-            ></textarea>
+            <textarea id="email-draft-area" rows="10"
+              class="w-full bg-black/30 border border-white/5 rounded-xl px-4 py-3 text-sm text-white/80 focus:outline-none focus:border-[#F5A623]/40 resize-none leading-relaxed"></textarea>
           </div>
 
-          <!-- To email -->
           <div>
             <label class="block text-xs font-semibold text-white/50 uppercase tracking-wider mb-2">Send To (Email)</label>
-            <input
-              id="to-email-input"
-              type="email"
-              placeholder="prospect@example.com"
-              class="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-white/20 focus:outline-none focus:border-[#FF0034]/50 transition-all text-sm"
-            />
+            <input id="to-email-input" type="email" placeholder="prospect@example.com"
+              class="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-white/20 focus:outline-none focus:border-[#F5A623]/50 transition-all text-sm"/>
           </div>
 
-          <!-- Action buttons -->
           <div class="flex gap-3">
-            <button
-              onclick="resetToScreen1()"
-              class="flex-1 bg-white/5 hover:bg-white/10 text-white/60 font-semibold py-3.5 rounded-xl transition-all text-sm"
-            >
+            <button onclick="resetToScreen1()"
+              class="flex-1 bg-white/5 hover:bg-white/10 text-white/60 font-semibold py-3.5 rounded-xl transition-all text-sm">
               ← New Target
             </button>
-            <button
-              id="send-btn"
-              onclick="sendEmail()"
-              class="flex-[2] bg-green-500 hover:bg-green-400 text-white font-black py-3.5 rounded-xl transition-all glow-green uppercase tracking-wider text-sm"
-            >
+            <button id="send-btn" onclick="sendEmail()"
+              class="flex-[2] bg-green-500 hover:bg-green-400 text-white font-black py-3.5 rounded-xl transition-all glow-green uppercase tracking-wider text-sm">
               ✅ Approve & Send Email
             </button>
           </div>
@@ -263,15 +336,193 @@
     </div>
   </main>
 
-  <!-- ── FOOTER ───────────────────────────────────────────────────────────── -->
   <footer class="border-t border-white/5 py-4 text-center text-xs text-white/15">
-    ABC GTM · The Game Together Inc. · Confidential & Proprietary
+    Fetch AI · The Game Together Inc. · Confidential & Proprietary
   </footer>
 
   <script>
+    // ─────────────────────────────────────────────────────────────────────────
+    //  FETCH ANIMATION — pixel golden retriever playing fetch
+    // ─────────────────────────────────────────────────────────────────────────
+
+    const CLR = {
+      G:  '#E8A020', // golden fur
+      D:  '#9B5200', // dark brown (ears, outline, legs)
+      BK: '#180800', // black (eye, nose)
+      M:  '#F5D890', // muzzle/cream
+      BL: '#F5C000', // ball yellow
+      BS: '#FFF8A0', // ball shine
+      GR: '#1E1E1E', // ground
+    };
+
+    // Side-profile dog body pixels (dx, dy, color) — facing RIGHT
+    // Origin = top-left of head, dog is 11w x 9h
+    const BODY_PIXELS = [
+      // ear
+      [1,0,CLR.D],[2,0,CLR.D],
+      // head row 1
+      [0,1,CLR.D],[1,1,CLR.G],[2,1,CLR.G],[3,1,CLR.D],
+      // head row 2 (eye)
+      [0,2,CLR.D],[1,2,CLR.G],[2,2,CLR.BK],[3,2,CLR.G],[4,2,CLR.D],
+      // muzzle
+      [1,3,CLR.D],[2,3,CLR.M],[3,3,CLR.M],[4,3,CLR.M],[5,3,CLR.D],
+      // neck into body
+      [2,4,CLR.D],[3,4,CLR.G],[4,4,CLR.G],[5,4,CLR.G],[6,4,CLR.D],
+      // body upper
+      [2,5,CLR.D],[3,5,CLR.G],[4,5,CLR.G],[5,5,CLR.G],[6,5,CLR.G],[7,5,CLR.D],
+      // belly
+      [3,6,CLR.D],[4,6,CLR.G],[5,6,CLR.G],[6,6,CLR.G],[7,6,CLR.D],
+    ];
+
+    // Tail pixels per frame (offset from dog origin)
+    const TAILS = [
+      [[8,4,CLR.D],[9,3,CLR.D]],  // up (standing/slow)
+      [[8,4,CLR.D],[9,3,CLR.D]],  // up
+      [[8,5,CLR.D],[9,6,CLR.D]],  // down (mid-run)
+      [[8,5,CLR.D],[9,6,CLR.D]],  // down
+    ];
+
+    // Leg pixels per frame (4 frames of running cycle)
+    const LEGS = [
+      // F0 neutral
+      [[3,7,CLR.D],[6,7,CLR.D],[3,8,CLR.D],[6,8,CLR.D]],
+      // F1 stride A: front leg forward, back leg back
+      [[2,7,CLR.D],[7,7,CLR.D],[2,8,CLR.D],[7,8,CLR.D]],
+      // F2 stride max: legs at widest
+      [[1,7,CLR.D],[7,7,CLR.D],[1,8,CLR.D],[8,8,CLR.D]],
+      // F3 stride B: cross coming back
+      [[2,7,CLR.D],[6,7,CLR.D],[3,8,CLR.D],[6,8,CLR.D]],
+    ];
+
+    function drawPixel(ctx, lx, ly, color, S) {
+      ctx.fillStyle = color;
+      ctx.fillRect(lx * S, ly * S, S, S);
+    }
+
+    function drawDog(ctx, ox, oy, legFrame, S) {
+      for (const [dx, dy, c] of BODY_PIXELS)    drawPixel(ctx, ox+dx, oy+dy, c, S);
+      for (const [dx, dy, c] of LEGS[legFrame]) drawPixel(ctx, ox+dx, oy+dy, c, S);
+      for (const [dx, dy, c] of TAILS[legFrame]) drawPixel(ctx, ox+dx, oy+dy, c, S);
+    }
+
+    function drawBall(ctx, bx, by, S) {
+      drawPixel(ctx, bx+1, by,   CLR.BS, S);
+      drawPixel(ctx, bx,   by+1, CLR.BL, S);
+      drawPixel(ctx, bx+1, by+1, CLR.BS, S);
+      drawPixel(ctx, bx+2, by+1, CLR.BL, S);
+      drawPixel(ctx, bx+1, by+2, CLR.BL, S);
+    }
+
+    // Animation state lives here so it can be stopped cleanly
+    let fetchTimer = null;
+
+    function startFetchAnim() {
+      const canvas = document.getElementById('fetch-anim');
+      if (!canvas) return;
+
+      // Logical canvas: 80w x 32h, displayed scaled
+      const LW = 80, LH = 32;
+      const S  = 4; // each logical px = 4 CSS px → 320x128
+      canvas.width  = LW * S;
+      canvas.height = LH * S;
+
+      const ctx = canvas.getContext('2d');
+      ctx.imageSmoothingEnabled = false;
+
+      const GY = 27; // ground y (logical)
+      const DOG_H = 9; // dog sprite height in logical px
+
+      // Ball state
+      let bx = 60, by = 15;
+      let bvx = -1.4, bvy = -2.2;
+
+      // Dog state
+      let dogX = 5;   // logical x (top-left of dog sprite)
+      let legF  = 0;
+      let ticker = 0;
+
+      // "catch" cooldown so the dog doesn't instantly re-throw
+      let catchCooldown = 0;
+
+      function tick() {
+        ticker++;
+
+        // ── update ball ──────────────────────────────────────────────────────
+        bx  += bvx;
+        by  += bvy;
+        bvy += 0.45; // gravity
+
+        // bounce off ground
+        if (by >= GY - 3) {
+          by  = GY - 3;
+          bvy = -(Math.abs(bvy) * 0.60);
+          if (Math.abs(bvy) < 0.3) bvy = 0;
+        }
+        // bounce off walls
+        if (bx < 1)      { bx = 1;      bvx =  Math.abs(bvx); }
+        if (bx > LW - 4) { bx = LW - 4; bvx = -Math.abs(bvx); }
+
+        // ── dog chases ball ──────────────────────────────────────────────────
+        const targetX = bx - 6; // try to line up snout with ball
+        const spd = 1.0;
+        if (dogX + 1 < targetX) dogX += spd;
+        else if (dogX + 1 > targetX) dogX -= spd;
+        dogX = Math.max(0, Math.min(LW - 11, dogX));
+
+        // Cycle legs if moving
+        const moving = Math.abs(dogX + 1 - targetX) > 0.5;
+        if (moving && ticker % 1 === 0) legF = (legF + 1) % 4;
+
+        // ── catch detection ──────────────────────────────────────────────────
+        catchCooldown = Math.max(0, catchCooldown - 1);
+        if (catchCooldown === 0) {
+          const dogSnoutX = dogX + 5;
+          const dogMouthY = GY - DOG_H + 3;
+          if (Math.abs(dogSnoutX - (bx + 1)) < 4 && Math.abs(dogMouthY - (by + 1)) < 5) {
+            // Caught! Throw again
+            const throwRight = bvx < 0 ? false : true; // alternate direction
+            bvx = (throwRight ? 1 : -1) * (1.8 + Math.random() * 0.8);
+            bvy = -(2.8 + Math.random() * 1.2);
+            bx  = dogSnoutX;
+            by  = dogMouthY;
+            catchCooldown = 12;
+          }
+        }
+
+        // ── draw ─────────────────────────────────────────────────────────────
+        // Background
+        ctx.fillStyle = '#0D0D0D';
+        ctx.fillRect(0, 0, LW*S, LH*S);
+
+        // Ground line (dotted)
+        for (let x = 0; x < LW; x++) {
+          drawPixel(ctx, x, GY, x % 3 === 0 ? CLR.GR : '#131313', S);
+        }
+
+        // Dog name label ("FETCH") — tiny pixel text via rects above ground
+        // Just draw a small "F" above dog as flavor
+        drawBall(ctx, Math.round(bx), Math.round(by), S);
+        drawDog(ctx, Math.round(dogX), GY - DOG_H, legF, S);
+      }
+
+      fetchTimer = setInterval(tick, 1000 / 8); // 8fps — chunky pixel-art feel
+    }
+
+    function stopFetchAnim() {
+      if (fetchTimer) { clearInterval(fetchTimer); fetchTimer = null; }
+      const canvas = document.getElementById('fetch-anim');
+      if (canvas) {
+        const ctx = canvas.getContext('2d');
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+      }
+    }
+
+    // ─────────────────────────────────────────────────────────────────────────
+    //  SCREEN MANAGEMENT
+    // ─────────────────────────────────────────────────────────────────────────
+
     let currentInteractionId = null;
 
-    // ── Step animator ─────────────────────────────────────────────────────────
     function activateStep(stepId) {
       const el = document.getElementById(stepId);
       if (!el) return;
@@ -284,23 +535,25 @@
       el.querySelector('.step-icon').textContent = '✅';
     }
 
-    // ── Screen transitions ────────────────────────────────────────────────────
     function showScreen(n) {
       ['screen-1','screen-2','screen-3'].forEach(id => {
         document.getElementById(id).classList.add('hidden');
         document.getElementById(id).classList.remove('fade-in');
       });
+      if (n !== 2) stopFetchAnim();
       const el = document.getElementById(`screen-${n}`);
       el.classList.remove('hidden');
-      void el.offsetWidth; // reflow
+      void el.offsetWidth; // reflow for animation restart
       el.classList.add('fade-in');
+      if (n === 2) startFetchAnim();
     }
 
-    function resetToScreen1() {
-      showScreen(1);
-    }
+    function resetToScreen1() { showScreen(1); }
 
-    // ── Main pipeline ─────────────────────────────────────────────────────────
+    // ─────────────────────────────────────────────────────────────────────────
+    //  PIPELINE
+    // ─────────────────────────────────────────────────────────────────────────
+
     async function runPipeline() {
       const domain  = document.getElementById('domain-input').value.trim();
       const persona = document.getElementById('persona-input').value.trim() || 'VP Sales';
@@ -312,14 +565,12 @@
         return;
       }
       errEl.classList.add('hidden');
-
       showScreen(2);
 
-      // Animate steps with rough timings
       setTimeout(() => activateStep('step-enrich'), 300);
       setTimeout(() => { completeStep('step-enrich'); activateStep('step-draft'); }, 2500);
-      setTimeout(() => { completeStep('step-draft'); activateStep('step-site'); }, 4500);
-      setTimeout(() => { completeStep('step-site'); activateStep('step-voice'); }, 6000);
+      setTimeout(() => { completeStep('step-draft');  activateStep('step-site');  }, 4500);
+      setTimeout(() => { completeStep('step-site');   activateStep('step-voice'); }, 6000);
 
       try {
         const res = await fetch('/api/v1/campaign/generate', {
@@ -327,24 +578,19 @@
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ domain, persona }),
         });
-
         if (!res.ok) {
           const err = await res.json().catch(() => ({}));
           throw new Error(err.detail || `Server error ${res.status}`);
         }
-
         const data = await res.json();
         completeStep('step-voice');
         currentInteractionId = data.interaction_id;
 
-        // Populate Screen 3
         document.getElementById('email-draft-area').value = data.email_draft;
-        const micrositeUrl = data.full_microsite_url;
-        document.getElementById('microsite-link').href = micrositeUrl;
-        document.getElementById('microsite-url-text').textContent = micrositeUrl;
+        document.getElementById('microsite-link').href    = data.full_microsite_url;
+        document.getElementById('microsite-url-text').textContent = data.full_microsite_url;
 
         setTimeout(() => showScreen(3), 600);
-
       } catch (err) {
         showScreen(1);
         document.getElementById('error-msg').textContent = `Pipeline failed: ${err.message}`;
@@ -352,7 +598,10 @@
       }
     }
 
-    // ── Send email ────────────────────────────────────────────────────────────
+    // ─────────────────────────────────────────────────────────────────────────
+    //  SEND
+    // ─────────────────────────────────────────────────────────────────────────
+
     async function sendEmail() {
       const btn       = document.getElementById('send-btn');
       const statusEl  = document.getElementById('send-status');
@@ -361,40 +610,32 @@
 
       if (!currentInteractionId) {
         statusEl.textContent = 'No active campaign. Please generate first.';
-        statusEl.className = 'text-center text-sm text-red-400';
+        statusEl.className   = 'text-center text-sm text-red-400';
         statusEl.classList.remove('hidden');
         return;
       }
-
-      btn.disabled = true;
+      btn.disabled    = true;
       btn.textContent = 'Sending…';
 
       try {
         const res = await fetch('/api/v1/campaign/send', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            interaction_id: currentInteractionId,
-            to_email: toEmail,
-            email_body: emailBody,
-          }),
+          body: JSON.stringify({ interaction_id: currentInteractionId, to_email: toEmail, email_body: emailBody }),
         });
-
         const data = await res.json();
-
         if (!res.ok) throw new Error(data.detail || `Error ${res.status}`);
 
         btn.textContent = '✅ Sent!';
-        btn.className = 'flex-[2] bg-white/10 text-white/50 font-black py-3.5 rounded-xl cursor-not-allowed text-sm uppercase tracking-wider';
+        btn.className   = 'flex-[2] bg-white/10 text-white/50 font-black py-3.5 rounded-xl cursor-not-allowed text-sm uppercase tracking-wider';
         statusEl.textContent = `Delivered via ${data.method}. Status updated to "Delivered" in DB.`;
-        statusEl.className = 'text-center text-sm text-green-400';
+        statusEl.className   = 'text-center text-sm text-green-400';
         statusEl.classList.remove('hidden');
-
       } catch (err) {
-        btn.disabled = false;
+        btn.disabled    = false;
         btn.textContent = '✅ Approve & Send Email';
         statusEl.textContent = `Send failed: ${err.message}`;
-        statusEl.className = 'text-center text-sm text-red-400';
+        statusEl.className   = 'text-center text-sm text-red-400';
         statusEl.classList.remove('hidden');
       }
     }
